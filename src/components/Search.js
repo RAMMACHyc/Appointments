@@ -8,7 +8,7 @@ const Search = () => {
     fetch('http://localhost:5000/tasks')
     .then(res => res.json())
     .then(data => {
-                   console.log(data);
+                  
                    setfilterData(data);
                 })
     
@@ -21,18 +21,27 @@ const Search = () => {
     setData(res);
 
    }
+
+
  
   return (
     <>
-    <div className='recherche'>
+    <div>
       <input type='text' className="search"  placeholder="Search.." onChange={e =>handleFilter(e.target.value)}  />
       {data.map((d,i)=>
-    <div key={i}>
-      <div className='div'>search</div>
+       <div  key={i}>
+     
        {d.text}
+       <p>{d.day}</p>
     </div>
+
      )}
+  
+     {/* <button onClick={descendingEvent}>Desc</button> */}
+
     </div>
+
+    
      
     </>
   )

@@ -5,7 +5,11 @@ import Header from './components/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 import { BsCalendar2Date } from 'react-icons/bs'
+import { AiOutlineSortAscending } from 'react-icons/ai'
+import { AiOutlineSortDescending } from 'react-icons/ai'
+
 import Search from './components/Search';
+
 
 
 
@@ -30,6 +34,25 @@ function App() {
     return data
 
   }
+
+
+
+
+  const ascendingEvent = () =>{
+    let data = [...tasks]
+    if(data.length > 0){
+     let result = data.sort((a,b) => a.text.localeCompare(b.text))
+     setTasks(result)
+    }
+   }
+   const descendingEvent = () =>{
+    let data = [...tasks]
+    if(data.length > 0){
+     let result = data.sort((a,b) => b.text.localeCompare(a.text))
+     setTasks(result)
+    }
+   }
+
 
   // Add Task 
   const addTask = async (task) => {
@@ -68,9 +91,11 @@ function App() {
       )
     )
   }
+
+
   return (
     <div className="container">
-      <h1><BsCalendar2Date style={{width:'25px',color:'#f58686',marginRight:'3px',height:'25px'}} />Your Appointments
+      <h1 className='h1'><BsCalendar2Date style={{width:'25px',color:'#f58686',marginRight:'3px',height:'25px'}} />Your Appointments
       </h1>
 
       <div className="container1">
@@ -78,6 +103,11 @@ function App() {
         {showAddTask && <AddTask onAdd={addTask} />}
 
       </div>
+     
+      <div className='btn1' onClick={ascendingEvent} ><AiOutlineSortAscending style={{color:'white'}} /></div>
+      <div className='btn2'  onClick={descendingEvent} ><AiOutlineSortDescending style={{color:'white'}} /></div>
+     
+
       <Search />
       {tasks.length > 0 ? (<Tasks tasks={tasks}
         onDelete={deleteTask} onToggle={toggleReminder} />) : ('No Appointments To Show')}

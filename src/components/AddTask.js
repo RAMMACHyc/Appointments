@@ -1,5 +1,8 @@
 import { useState } from 'react'
 
+
+
+
 const AddTask = ({onAdd}) => {
     
 
@@ -13,18 +16,23 @@ const AddTask = ({onAdd}) => {
     //   reminder: "",
     // });
     const [text,setText] = useState('')
+    const [petName,setPetName] = useState('')
     const [day,setDay] = useState(null)
+    const [time,setTime] = useState(null)
+
     const [reminder,setReminder] = useState(false)
 
   const onSubmit = (e) =>{
     e.preventDefault()
     if(!text){
-        alert('')
+        alert()
         return
     }
-    onAdd({text, day, reminder})
+    onAdd({text,petName, day,time, reminder})
     setText('')
+    setPetName('')
     setDay('')
+    setTime('')
     setReminder(false)
 
   }
@@ -69,11 +77,15 @@ const AddTask = ({onAdd}) => {
                 </div>
                 <div class="name">
                     <label for="" className="input_label">Pet Name</label>
-                    <input type="text" className="input" placeholder="Pet Name"/>
+                    <input type="text" value={petName} onChange={(e) => setPetName(e.target.value)} className="input" placeholder="Pet Name"/>
                 </div>
                 <div className="name">
                     <label for="" className="input_label">Apt Date</label>
                     <input type="date" value={day}  min={minDate()} onChange={(e) => setDay(e.target.value)} className="input"/>
+                </div>
+                <div className="name">
+                    <label for="" className="input_label">Apt Time</label>
+                    <input type="time" onChange={(e) => setTime(e.target.value)} className="input"/>
                 </div>
              
                 <div className="name">

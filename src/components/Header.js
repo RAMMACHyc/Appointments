@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import Button from './Button';
-import { FaTimes } from 'react-icons/fa'
-import {VscAdd} from 'react-icons/vsc'
+// import { FaTimes } from 'react-icons/fa'
+import {BiCalendarX} from 'react-icons/bi'
+// import {VscAdd} from 'react-icons/vsc'
+
 import { Img01} from '../assets/img/index'
+import { BiCalendarPlus } from 'react-icons/bi'
+
 
 
  // <header className='header'>
@@ -27,8 +31,8 @@ const Header = ({title,onAdd,showAdd}) => {
 </div>
 
 
-<Button color={showAdd ? 'white' : 'white'} text={showAdd ? <FaTimes style={{color:'red',cursor:'pointer'}} /> :  <VscAdd  style={{color:'black',cursor:'pointer'}} />} onClick={onAdd}/>
-{showAdd ? ''  : <p className='p'>New Appointments</p> }
+<Button color={showAdd ? 'white' : 'white'} text={showAdd ? <BiCalendarX style={{color:'red',cursor:'pointer',width:'20px',height:'20px'}} /> :  <BiCalendarPlus  style={{color:'#2c6c80',cursor:'pointer',width:'20px',height:'20px'}} />} onClick={onAdd}/>
+{/* {showAdd ? ''  : <p className='p'>{title}</p> } */}
 <div className='headDIV'>
 {showAdd ? ''  : <img className='headImg' src= {Img01}  alt=""/> }
 
