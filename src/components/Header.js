@@ -1,19 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import Button from './Button';
-// import { FaTimes } from 'react-icons/fa'
 import {BiCalendarX} from 'react-icons/bi'
-// import {VscAdd} from 'react-icons/vsc'
+
 
 import { Img01} from '../assets/img/index'
 import { BiCalendarPlus } from 'react-icons/bi'
 
 
 
- // <header className='header'>
-        //   <h1 >{title}</h1> 
-        //   <Button color={showAdd ? 'red' : '#2cb7f3'} text={showAdd ? 'close' : 'Add'} onClick={onAdd}/>
-        // </header>
 const Header = ({title,onAdd,showAdd}) => {
  
     return (
@@ -21,7 +16,7 @@ const Header = ({title,onAdd,showAdd}) => {
         <div>
          <div className="head">
          <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-        class="bi bi-calendar-date" viewBox="0 0 16 16">
+        className="bi bi-calendar-date" viewBox="0 0 16 16">
         <path
             d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
         <path
@@ -32,7 +27,7 @@ const Header = ({title,onAdd,showAdd}) => {
 
 
 <Button color={showAdd ? 'white' : 'white'} text={showAdd ? <BiCalendarX style={{color:'red',cursor:'pointer',width:'20px',height:'20px'}} /> :  <BiCalendarPlus  style={{color:'#2c6c80',cursor:'pointer',width:'20px',height:'20px'}} />} onClick={onAdd}/>
-{/* {showAdd ? ''  : <p className='p'>{title}</p> } */}
+
 <div className='headDIV'>
 {showAdd ? ''  : <img className='headImg' src= {Img01}  alt=""/> }
 

@@ -123,12 +123,13 @@ footer {
 
 }
 
+
 .container {
     max-width: 80rem;
     margin: 30px auto;
     overflow: auto;
     min-height: 300px;
-    /* border: 1px solid steelblue; */
+    
    
   }
   .container1 {
@@ -241,10 +242,15 @@ footer {
   }
 
   .task {
-    background: #f4f4f4;
+    background: #ffffff;
     margin: 5px;
     padding: 10px 20px;
     cursor: pointer;
+    position: relative;
+    border-radius: 7px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1);
+    margin-top: 1.5%;
+
   }
   
   .task.reminder {
@@ -254,7 +260,7 @@ footer {
   .task h3 {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
 
   .headImg{
@@ -319,4 +325,31 @@ footer {
     box-shadow: rgba(13, 102, 119, 0.1) 0px 4px 12px;
   }
 
-  
+  .delete{
+    position: absolute;
+    top: 40%;
+    right: 2%;
+font-size: large;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(250, 79, 79);
+    text-align: center;
+    border-radius: 10px;   
+
+  }
+
+  .delete svg{
+    padding-top: 9px;
+    color: white;
+
+  }
+  .delete :hover{
+    background-color: rgb(254, 64, 64);
+ 
+
+  }
+
+  .Show{
+    text-align: center;
+    margin-top: 3%;
+  }

@@ -1,7 +1,6 @@
 import { useState } from 'react'
-
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddTask = ({onAdd}) => {
     
@@ -17,20 +16,29 @@ const AddTask = ({onAdd}) => {
     // });
     const [text,setText] = useState('')
     const [petName,setPetName] = useState('')
+    const [Note,setNote] = useState('')
+
     const [day,setDay] = useState(null)
     const [time,setTime] = useState(null)
 
     const [reminder,setReminder] = useState(false)
 
+    const showToastMessage = () => {
+        toast.error('error Please fill out the input !', {
+            position: toast.POSITION.TOP_RIGHT
+        });
+    };
+
   const onSubmit = (e) =>{
     e.preventDefault()
-    if(!text){
-        alert()
+    if(!(text && petName && Note && day && time)){
+        showToastMessage()
         return
     }
     onAdd({text,petName, day,time, reminder})
     setText('')
     setPetName('')
+    setNote('')
     setDay('')
     setTime('')
     setReminder(false)
@@ -38,38 +46,6 @@ const AddTask = ({onAdd}) => {
   }
   
     return (
-        // <form className='add-form' onSubmit={onSubmit}>
-        //   <div className='form-control'>
-        //     <label>Task</label>
-        //     <input
-        //       type='text'
-        //       placeholder='Add Task'
-        //       value={text}
-        //       onChange={(e) => setText(e.target.value)}
-        //     />
-        //   </div>
-        //   <div className='form-control'>
-        //     <label>Date</label>
-        //     <input
-        //         type="date"
-        //         value={day}
-        //         min={minDate()}
-        //         onChange={(e) => setDay(e.target.value)}
-        //      />
-        //   </div>
-        //   <div className='form-control form-control-check'>
-        //     <label>Set Reminder</label>
-        //     <input
-        //       type='checkbox'
-        //       checked={reminder}
-        //       value={reminder}
-        //       onChange={(e) => setReminder(e.currentTarget.checked)}
-        //     />
-        //   </div>
-    
-        //   <input type='submit' value='Save Task' className='btn btn-block' />
-        // </form>
-     
          <form className='add-form' onSubmit={onSubmit}>
                 <div className="name">
                     <label for="" className="input_label">Owner Name</label>
@@ -90,7 +66,7 @@ const AddTask = ({onAdd}) => {
              
                 <div className="name">
                     <label for="" className="input_label">Appointments Notes</label>
-                    <textarea className="textarea" placeholder="Detailed Comments about the condition" name="" id=""
+                    <textarea value={Note} onChange={(e) => setNote(e.target.value)} className="textarea" placeholder="Detailed Comments about the condition" name="" id=""
                         cols="30" rows="10"></textarea>
                 </div>
                 {/* <div className='name'>
@@ -102,6 +78,9 @@ const AddTask = ({onAdd}) => {
               onChange={(e) => setReminder(e.currentTarget.checked)}
             />
           </div> */}
+        
+            <ToastContainer />
+
                 <input  type='submit' value='submit' className="button" />
 
             </form>

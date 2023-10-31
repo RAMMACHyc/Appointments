@@ -7,8 +7,12 @@ import AddTask from './components/AddTask';
 import { BsCalendar2Date } from 'react-icons/bs'
 import { AiOutlineSortAscending } from 'react-icons/ai'
 import { AiOutlineSortDescending } from 'react-icons/ai'
-
+import {TbDatabaseExclamation} from 'react-icons/tb'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Search from './components/Search';
+
+
 
 
 
@@ -64,12 +68,11 @@ function App() {
       body: JSON.stringify(task)
     })
     const data = await res.json()
+    if(data !=null){
+      showToastMessage()
+    }
 
     setTasks([...tasks, data])
-
-    // const id =  Math.floor(Math.random() * 10000) + 1
-    // const newTask = {id,...task}
-    // setTasks([...tasks,newTask])
   }
 
   //Delete Task 
@@ -93,6 +96,13 @@ function App() {
   }
 
 
+  const showToastMessage = () => {
+    toast.success('Success Notification !', {
+        position: toast.POSITION.TOP_RIGHT
+    });
+};
+
+
   return (
     <div className="container">
       <h1 className='h1'><BsCalendar2Date style={{width:'25px',color:'#f58686',marginRight:'3px',height:'25px'}} />Your Appointments
@@ -106,11 +116,11 @@ function App() {
      
       <div className='btn1' onClick={ascendingEvent} ><AiOutlineSortAscending style={{color:'white'}} /></div>
       <div className='btn2'  onClick={descendingEvent} ><AiOutlineSortDescending style={{color:'white'}} /></div>
-     
+      <ToastContainer />
 
       <Search />
       {tasks.length > 0 ? (<Tasks tasks={tasks}
-        onDelete={deleteTask} onToggle={toggleReminder} />) : ('No Appointments To Show')}
+        onDelete={deleteTask} onToggle={toggleReminder} />) : <p className='Show'><TbDatabaseExclamation style={{color:'red'}}  />No Appointments To Show...</p>}
     </div>
 
   )
