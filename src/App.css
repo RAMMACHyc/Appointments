@@ -353,3 +353,26 @@ font-size: large;
     text-align: center;
     margin-top: 3%;
   }
+
+  .task1 {
+    background: #ffffff;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 7px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1);
+    margin-top: 1.5%;
+
+  }
+  
+  .task1.reminder {
+    border-left: 5px solid rgb(44, 183, 243);
+  }
+  
+  .task1 h3 {
+   text-align: center;
+   margin: 0px;
+
+    
+  }
