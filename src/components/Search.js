@@ -39,8 +39,8 @@ const Search = () => {
   };
 
   return (
-    <>
-      <input
+    <> 
+      <input 
         type='text'
         className='search'
         placeholder='Search..'
@@ -52,7 +52,7 @@ const Search = () => {
             <div>
                <div style={{borderBottom:" 1px dashed #e5734f",display:"flex"}} > 
                 <FaUserTie style={{color:'gray',width:'25px',textAlign:"center"}} />
-                 <h3 dangerouslySetInnerHTML={{ __html: task.text }} />
+                 <h3 dangerouslySetInnerHTML={{ __html: task.text }} /> 
                </div>
                
           
